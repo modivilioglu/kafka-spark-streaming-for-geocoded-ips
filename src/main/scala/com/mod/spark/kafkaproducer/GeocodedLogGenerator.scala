@@ -13,7 +13,7 @@ import scala.util.Random
 object GeocodedLogGenerator extends App {
   val generatorConfiguration = Configuration.GeocodedLogGeneratorConfiguration
 
-  val productNames = scala.io.Source.fromInputStream(getClass.getResourceAsStream("/products.csv")).getLines().toArray
+  val productNames = scala.io.Source.fromInputStream(getClass.getResourceAsStream("/products")).getLines().toArray
 
 
   val random = new Random()

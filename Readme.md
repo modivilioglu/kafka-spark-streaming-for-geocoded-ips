@@ -6,12 +6,11 @@ So selecting the right branches of the suppliers are important.
 
 ## Solution Algorithm
 The solution for the above mentioned problem is mainly calculating the distance of the suppliers and the online customers, whose locations 
-are very roughly discovered by geocoded ips. The suppliers accumulates the distance to each customer, and that is the weight. So the supplier
-with the least avarage distance is the best candidate, and so it goes on. If we need to select n suppliers, we select the first n 
+are very roughly discovered by geocoded ips. For each supplie, the distance to each customer is accumulated. So the supplier
+with the least avarage distance becomes the best candidate. If we need to select n suppliers, we select the first n 
 suppliers that have the least distance avarage.
 
-Since the operation is associative, we can distribute it to paralell calculations, which Spark does, so our algorithm is suitable for parallel 
-calculation.
+Since the operation is associative, we can distribute it to paralell operations, which Spark already does, so our algorithm is suitable for parallel processing.
 
 ## Technical Overview
 This project covers the architechtural basics of a Spark ecosystem.

@@ -18,4 +18,9 @@ Basically it consists of
 - Geo Log Generator, that produces live feed for geocoded ips
 - Apache Kafka, that is populated by Log Generator and read by Spark Streaming
 - Spark Streaming, that persists the RDDs of DStream read from Kafka into hdfs in Parquet columnar format
-- Spark Batch Job that does the analysis for the main problem
+- Spark Batch Job that does the analysis for the main problem, reading from the Parquet format in hdfs
+
+Normally, another approach would be making the analysis via directly reading from the DStream on Spark Streaming without
+persisting the data on hdfs. There are windowing and other tools that enables you to track the changes of the behaviour of the
+live feeded data. While this approach would be a perfect solution to other questions about the same online customer data, it does not perfectly fit to our problem we want to solve. Another reason is the need for simplicity in this code. Caching at some points, where the
+calculations are repeated can also be added, for future optimisation.
